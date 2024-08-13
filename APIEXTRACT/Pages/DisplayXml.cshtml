@@ -1,0 +1,29 @@
+﻿@page
+@model APIEXTRACT.Pages.DisplayXmlModel
+
+<h2>XML Data Display</h2>
+
+@if (Model.XmlData != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Element Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var element in Model.XmlData.Descendants())
+            {
+                <tr>
+                    <td>@element.Name.LocalName</td>
+                    <td>@element.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No XML data available.</p>
+}
